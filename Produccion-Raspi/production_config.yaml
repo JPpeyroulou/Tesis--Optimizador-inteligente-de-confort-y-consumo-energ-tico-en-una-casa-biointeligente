@@ -1,0 +1,346 @@
+# ================================================
+# CONFIGURACIÓN DE ENTRENAMIENTO ONLINE EN PRODUCCIÓN
+# ================================================
+
+# Información general
+name: "multizona_production_online"
+description: "Entrenamiento online en entorno de producción multizona"
+version: "1.0"
+author: "Sistema de Control Inteligente"
+
+# Configuración del entorno
+environment: "Eplus-pyenv-multizona-production-v1"
+env_type: "production"
+
+# Configuración específica del entorno
+env_config:
+  # Archivos del edificio y clima
+  building_file: "idf_multiplesZonas.epJSON"
+  weather_files:
+    - "URY_Montevideo.epw"
+  
+  # Time variables 
+  time_variables:
+    - month
+    - day_of_month
+    - hour
+  
+  # Variables de observación (sensores) 
+  variables:
+    # Zone Radiant HVAC Heating Rate (4 zonas)
+    Zone Radiant HVAC Heating Rate:
+      variable_names: heating_rate
+      keys:
+        - LOZARADIANTE_ZONANORTH
+        - LOZARADIANTE_ZONASOUTH
+        - LOZARADIANTE_ZONAEAST
+        - LOZARADIANTE_ZONAWEST
+    
+    # Variables ambientales
+    Site Outdoor Air DryBulb Temperature:
+      variable_names: outdoor_temperature
+      keys: Environment
+    
+    Site Outdoor Air Relative Humidity:
+      variable_names: outdoor_humidity
+      keys: Environment
+    
+    # Temperaturas de zonas (4 zonas: NORTH, SOUTH, EAST, WEST PERIMETER)
+    Zone Air Temperature:
+      variable_names: air_temperature
+      keys:
+        - NORTH PERIMETER
+        - SOUTH PERIMETER
+        - EAST PERIMETER
+        - WEST PERIMETER
+    
+    # Humedad de zonas (4 zonas: NORTH, SOUTH, EAST, WEST PERIMETER)
+    Zone Air Relative Humidity:
+      variable_names: air_humidity
+      keys:
+        - NORTH PERIMETER
+        - SOUTH PERIMETER
+        - EAST PERIMETER
+        - WEST PERIMETER
+    
+    # Variable de la bomba de calor
+    Heat Pump Electricity Rate:
+      variable_names: heat_pump_power
+      keys: BOMBACALOR_HP
+  
+  # Medidores 
+  meters:
+    Heat Pump:Heating:Electricity: total_electricity_HVAC
+  
+  # Actuadores
+  actuators:
+    ZonaNorth:
+      - "Schedule:Compact"
+      - "Schedule Value"
+      - "ZonaNorth"
+    ZonaSouth:
+      - "Schedule:Compact"
+      - "Schedule Value"
+      - "ZonaSouth"
+    ZonaEast:
+      - "Schedule:Compact"
+      - "Schedule Value"
+      - "ZonaEast"
+    ZonaWest:
+      - "Schedule:Compact"
+      - "Schedule Value"
+      - "ZonaWest"
+    Temperatura_Calefaccion_Schedule:
+      - "Schedule:Compact"
+      - "Schedule Value"
+      - "Temperatura_Calefaccion_Schedule"
+  
+  action_space:
+    low: [0, 0, 0, 0, 20]
+    high: [1, 0, 1, 1, 40]
+  
+  # Función de recompensa 
+  reward: "sinergym.utils.rewards:NuestroRewardMultizona"
+  reward_kwargs:
+    temperature_variables:
+      - north_perimeter_air_temperature
+      #- south_perimeter_air_temperature
+      - east_perimeter_air_temperature
+      - west_perimeter_air_temperature
+    humidity_variables:
+      - north_perimeter_air_humidity
+      #- south_perimeter_air_humidity
+      - east_perimeter_air_humidity
+      - west_perimeter_air_humidity
+    energy_variables:
+      - heat_pump_power
+    energy_weight: 0.5
+    lambda_energy: 1.0
+    lambda_temperature: 25
+    tarifa_json: /workspaces/sinergym/sinergym/data/tarifas/tarifas_ute.json
+    schedule_csv: /workspaces/sinergym/sinergym/data/schedule/schedule.csv
+  
+  # Configuración del entorno
+  config_params:
+    timesteps_per_hour: 12  # 12 pasos por hora (cada paso = 5 minutos)
+    runperiod: [1, 1, 12, 31]  # Año completo
+    action_definition: {}
+    weather_variability: null
+  
+  # Configuración específica de producción
+  production_config:
+    # Modo de obtención de datos
+    data_mode: "homeassistant"  
+    
+    # Configuración para modo API (Home Assistant)
+    api_config:
+      homeassistant:
+        url: "http://172.17.0.1:8123"  # URL de Home Assistant (desde Docker)
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI0Mzg5YzYxZWJkZmU0NDA4YjdhNTljMzYwZTQzNjkyYSIsImlhdCI6MTc2OTU1NjQ3OCwiZXhwIjoyMDg0OTE2NDc4fQ.Z_KjATkzbD8CwSzXhzDTKl_-EwDRTAU58DBjv-uglyk"  # Token de acceso
+        # Bandera de sincronización con energyplusNexus (protocolo: esperar ON → leer sensores → modelo → escribir actuadores → OFF)
+        flag_entity: "input_boolean.sinergym_simulator_ready"
+        use_flag_sync: true  # Si true, el bucle sigue: esperar bandera ON → leer sensores → ejecutar modelo → subir actuadores → bajar bandera
+        action_delay: 1.0  # Tiempo de espera después de enviar acción (segundos)
+        sensor_delay: 0.5  # Tiempo de espera antes de leer sensores (segundos)
+        timestep_delay_seconds: 0.0  # Con use_flag_sync el ritmo lo marca el simulador; sin flag puede usarse delay fijo
+        
+        # Fecha/hora desde HA: el código externo (EnergyPlus) actualiza esta entidad con la fecha/hora de la lectura
+        time_entity: "input_datetime.simulation_datetime"
+        # Schedule CSV desde HA (presencia): contenido editable en dashboard o vía API
+        schedule_entity: "input_text.schedule_csv_content"
+        # Forecast 24h desde HA: una entidad con CSV (24 líneas × 6 valores: temp_air,rh,wind_dir,wind_speed,dni,dhi)
+        # Formato CSV: cabecera opcional "timestep,temp_air,rh,wind_dir,wind_speed,dni,dhi", luego 24 filas de 6 valores
+        forecast_csv_entity: "input_text.forecast_24h_csv"
+        forecast_hours: 24
+        forecast_columns: ["temp_air", "rh", "wind_dir", "wind_speed", "dni", "dhi"]
+        
+        # Mapeo de variables a sensores de Home Assistant
+        # Formato: {variable_name: entity_id}
+        sensor_entities:
+          # Ejemplo para nuestroMultrizona.yaml:
+          # heating_rate variables (4)
+          lozaradiante_zonanorth_heating_rate: "sensor.north_heating_rate_sensor"
+          lozaradiante_zonasouth_heating_rate: "sensor.south_heating_rate_sensor"
+          lozaradiante_zonaeast_heating_rate: "sensor.east_heating_rate_sensor"
+          lozaradiante_zonawest_heating_rate: "sensor.west_heating_rate_sensor"
+          # outdoor variables (2)
+          outdoor_temperature: "sensor.outdoor_temperature_sensor"
+          outdoor_humidity: "sensor.outdoor_humidity_sensor"
+          # air temperature variables (4)
+          north_perimeter_air_temperature: "sensor.north_air_temperature_sensor"
+          south_perimeter_air_temperature: "sensor.south_air_temperature_sensor"
+          east_perimeter_air_temperature: "sensor.east_air_temperature_sensor"
+          west_perimeter_air_temperature: "sensor.west_air_temperature_sensor"
+          # air humidity variables (4)
+          north_perimeter_air_humidity: "sensor.north_air_humidity_sensor"
+          south_perimeter_air_humidity: "sensor.south_air_humidity_sensor"
+          east_perimeter_air_humidity: "sensor.east_air_humidity_sensor"
+          west_perimeter_air_humidity: "sensor.west_air_humidity_sensor"
+          # heat pump (variable) (1)
+          heat_pump_power: "sensor.heat_pump_power_sensor"
+          # meter (se lee como sensor también) (1)
+          total_electricity_HVAC: "sensor.total_electricity_hvac_sensor"
+        
+        # Mapeo de actuadores a entidades de Home Assistant
+        # Formato: {action_name: entity_id}
+        actuator_entities:
+          # Ejemplo para nuestroMultrizona.yaml (5 actuadores):
+          ZonaNorth: "input_number.zona_north"  # o "number.zona_north" o "climate.zone_north"
+          ZonaSouth: "input_number.zona_south"
+          ZonaEast: "input_number.zona_east"
+          ZonaWest: "input_number.zona_west"
+          Temperatura_Calefaccion_Schedule: "input_number.temperatura_calefaccion"  # o "climate.heat_pump"
+    
+    # Tiempos y límites
+    max_steps_per_episode: 288  # 24 horas con 12 pasos/hora (cada paso = 5 minutos)
+    
+    # Límites de seguridad
+    safety_limits:
+      max_zone_temperature: 28.0  # °C
+      min_zone_temperature: 16.0  # °C
+      max_humidity: 70.0  # %
+      min_humidity: 30.0  # %
+      max_power_demand: 20000.0  # W
+      min_pmv_limit: -0.5  # Índice PMV mínimo
+      max_pmv_limit: 0.5   # Índice PMV máximo
+    
+    # Opciones de logging
+    log_raw_data: true
+    log_actions: true
+    log_observations: true
+    log_rewards: true
+
+# Wrappers para el entorno
+wrappers:
+  - name: "LoggerWrapper"
+    params:
+      flag: true
+  - name: "NormalizeObservation"
+    params: {}
+  - name: "NormalizeAction"
+    params:
+      normalize_range: [-1.0, 1.0]  # Normalizar acciones a [-1, 1] para coincidir con el modelo
+  
+# Otras opciones de wrappers
+normalize: true
+logging: true
+
+# Configuración del algoritmo
+algorithm:
+  name: "SAC"  # SAC, PPO, TD3
+  policy: "MlpPolicy"
+  
+algorithm_params:
+  # Parámetros generales
+  learning_rate: 0.0003
+  buffer_size: 1000000
+  batch_size: 256
+  tau: 0.005
+  gamma: 0.99
+  train_freq: 1
+  gradient_steps: 1
+  
+  # Parámetros específicos de SAC
+  ent_coef: "auto"
+  target_entropy: "auto"
+  
+  # Parámetros de red neuronal
+  net_arch:
+    - 256
+    - 256
+
+# Configuración de entrenamiento
+training:
+  total_timesteps: 50000
+  eval_freq: 1000
+  n_eval_episodes: 2
+  save_freq: 5000
+  # Control de exploración durante entrenamiento
+  # Si es True, el modelo explora durante el entrenamiento (comportamiento normal de SAC)
+  # Si es False, las acciones serán determinísticas (0 exploración) durante la ejecución
+  # pero el modelo seguirá entrenándose con los datos recopilados
+  enable_exploration: false  # true = con exploración, false = 0 exploración (acciones determinísticas)
+  learning_starts: 100
+  reset_num_timesteps: false
+  
+  # Callbacks adicionales
+  use_tensorboard: true
+  tensorboard_log: "./tensorboard/production/"
+  
+  # Early stopping
+  early_stopping: false
+  early_stopping_patience: 10
+  early_stopping_min_reward: -1000.0
+
+# Configuración de pruebas
+testing:
+  n_episodes: 1
+  max_steps: 288  # 24 horas = 288 pasos (12 pasos por hora, cada paso = 5 minutos)
+  render: true
+  deterministic: true
+  save_video: false
+  video_fps: 4
+
+# Opciones de ejecución
+run_initial_test: true
+enable_online_training: true
+run_final_test: true
+
+# Configuración de logging avanzado
+advanced_logging:
+  wandb: false
+  wandb_project: "sinergym_production"
+  wandb_entity: null
+  comet_ml: false
+  mlflow: false
+  
+  # Métricas personalizadas para trackear
+  metrics:
+    - "energy_consumption"
+    - "comfort_violations"
+    - "action_magnitude"
+    - "safety_violations"
+    - "episode_duration"
+
+# Configuración de seguridad
+safety:
+  emergency_shutdown: true
+  max_consecutive_failures: 10
+  min_observation_confidence: 0.8
+  backup_policy: "safe_heuristic"
+  
+  safe_heuristic_params:
+    heating_setpoint: 20.0
+    cooling_setpoint: 26.0
+    fallback_temperature: 22.0
+
+# Configuración de persistencia
+persistence:
+  save_checkpoints: true
+  checkpoint_dir: "./checkpoints/production/"
+  save_best_model: true
+  save_replay_buffer: true
+  save_env_stats: true
+  
+  # Frecuencia de guardado
+  checkpoint_frequency: 5000
+  stats_frequency: 1000
+
+# Notificaciones (opcional)
+notifications:
+  enabled: false
+  email:
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    sender_email: ""
+    sender_password: ""
+    recipient_emails: []
+  
+  webhook:
+    enabled: false
+    url: ""
+    events: ["episode_end", "safety_violation", "training_complete"]
+
+# ================================================
+# FIN DE CONFIGURACIÓN
+# ================================================
