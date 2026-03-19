@@ -1,0 +1,107 @@
+# ---------------------------------------------------------------------------- #
+#                                    BASICS                                    #
+# ---------------------------------------------------------------------------- #
+experiment_name: Eplus-SAC-training-nuestroMultizona
+environment: Eplus-nuestroMultizona-uru-continuous-v1
+episodes: 70
+
+# ---------------------------------------------------------------------------- #
+#                                 SB3 ALGORITHM                                #
+# ---------------------------------------------------------------------------- #
+algorithm:
+  name: stable_baselines3:SAC
+  log_interval: 1
+  parameters:
+    policy: MlpPolicy
+    learning_rate: 0.0003
+    buffer_size: 1000000
+    learning_starts: 1000
+    batch_size: 512
+    tau: 0.005
+    gamma: 0.99
+    train_freq: 4
+    gradient_steps: 1
+    action_noise: null
+    replay_buffer_class: null
+    replay_buffer_kwargs: null
+    optimize_memory_usage: false
+    ent_coef: auto
+    target_update_interval: 1
+    target_entropy: auto
+    use_sde: false
+    sde_sample_freq: -1
+    use_sde_at_warmup: false
+    stats_window_size: 100
+    tensorboard_log: null
+    policy_kwargs: null
+    verbose: 1
+    seed: null
+    device: auto
+    _init_setup_model: true
+
+# ---------------------------------------------------------------------------- #
+#                             INITIAL STATE (MODEL)                            #
+# ---------------------------------------------------------------------------- #
+
+# -------------------------------- Local Path -------------------------------- #
+# model: 
+#   local_path: </path/to/model>
+
+# ---------------------------- Google Bucket Path ---------------------------- #
+# model: 
+#   bucket_path: gs://<path_to_model_google_bucket>
+
+# ----------------------------- WANDB model Path ----------------------------- #
+# model:
+#   project: test-project
+#   entity: sail_ugr
+#   artifact_name: SAC-Eplus-5zone-hot-continuous-stochastic-v1-episodes-5-id-SACExperimentExample_2025-02-02_18-31_9jau51uy
+#   artifact_type: output
+#   artifact_tag: v0
+#   artifact_path: Sinergym_output/evaluation/
+#   model_path: Sinergym_output/evaluation/best_model.zip
+
+# ---------------------------------------------------------------------------- #
+#                                  EVALUATION                                  #
+# ---------------------------------------------------------------------------- #
+evaluation:
+  eval_freq: 2
+  eval_length: 1
+
+# ---------------------------------------------------------------------------- #
+#                       ENVIRONMENT OVERWRITE PARAMETERS                       #
+# ---------------------------------------------------------------------------- #
+# Yaml file with environment configuration (Optional)
+#env_yaml_config: null
+## Environment deep update for parameters with dictionary type, it is used to overwrite the environment parameters default is True).
+#env_deep_update: true
+# In order to overwrite some parameters of the environment, you can use the following
+#env_params:
+#  seed: null
+#  reward: sinergym.utils.rewards:LinearReward
+# ... other environment parameters
+
+
+
+# ---------------------------------------------------------------------------- #
+#                              WRAPPERS DEFINITION                             #
+# ---------------------------------------------------------------------------- #
+# Yaml file with wrappers configuration (Optional)
+wrappers_yaml_config: null
+# This overwrite wrappers in wrappers_yaml_config if defined
+wrappers:
+  - sinergym.utils.wrappers:NormalizeAction: {}
+  - sinergym.utils.wrappers:NormalizeObservation: {}
+  - sinergym.utils.wrappers:LoggerWrapper:
+      storage_class: sinergym.utils.logger:LoggerStorage
+  - sinergym.utils.wrappers:CSVLogger: {}
+  # - sinergym.utils.wrappers:WandBLogger:
+  #     entity: alejandro-campoy
+  #     project_name: test-project
+#
+## ---------------------------------------------------------------------------- #
+# ##--------------------------------------------------------------------------- #
+cloud: 
+  remote_store: null # remote bucket name
+  auto_delete: null
+  ##   group_name: group-example
