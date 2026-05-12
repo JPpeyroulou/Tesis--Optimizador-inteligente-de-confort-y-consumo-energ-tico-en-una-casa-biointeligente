@@ -1,0 +1,472 @@
+
+ Meters for 11,CORE:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:CORE [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:CORE [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+  OnMeter=General:Heating:EnergyTransfer:Zone:CORE [J]
+
+ Meters for 96,CORE:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:CORE [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:CORE [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+  OnMeter=General:Cooling:EnergyTransfer:Zone:CORE [J]
+
+ Meters for 147,EAST PERIMETER:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:EAST PERIMETER [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:EAST PERIMETER [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+  OnMeter=General:Heating:EnergyTransfer:Zone:EAST PERIMETER [J]
+
+ Meters for 184,EAST PERIMETER:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:EAST PERIMETER [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:EAST PERIMETER [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+  OnMeter=General:Cooling:EnergyTransfer:Zone:EAST PERIMETER [J]
+
+ Meters for 211,NORTH PERIMETER:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:NORTH PERIMETER [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:NORTH PERIMETER [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+  OnMeter=General:Heating:EnergyTransfer:Zone:NORTH PERIMETER [J]
+
+ Meters for 248,NORTH PERIMETER:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:NORTH PERIMETER [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:NORTH PERIMETER [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+  OnMeter=General:Cooling:EnergyTransfer:Zone:NORTH PERIMETER [J]
+
+ Meters for 275,PLENUM:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PLENUM [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:PLENUM [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+  OnMeter=General:Heating:EnergyTransfer:Zone:PLENUM [J]
+
+ Meters for 312,PLENUM:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:PLENUM [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:PLENUM [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+  OnMeter=General:Cooling:EnergyTransfer:Zone:PLENUM [J]
+
+ Meters for 339,SOUTH PERIMETER:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:SOUTH PERIMETER [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:SOUTH PERIMETER [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+  OnMeter=General:Heating:EnergyTransfer:Zone:SOUTH PERIMETER [J]
+
+ Meters for 376,SOUTH PERIMETER:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:SOUTH PERIMETER [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:SOUTH PERIMETER [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+  OnMeter=General:Cooling:EnergyTransfer:Zone:SOUTH PERIMETER [J]
+
+ Meters for 403,WEST PERIMETER:Zone Air System Sensible Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:WEST PERIMETER [J]
+  OnMeter=Heating:EnergyTransfer [J]
+  OnMeter=Heating:EnergyTransfer:Zone:WEST PERIMETER [J]
+  OnMeter=General:Heating:EnergyTransfer [J]
+  OnMeter=General:Heating:EnergyTransfer:Zone:WEST PERIMETER [J]
+
+ Meters for 440,WEST PERIMETER:Zone Air System Sensible Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Building [J]
+  OnMeter=EnergyTransfer:Zone:WEST PERIMETER [J]
+  OnMeter=Cooling:EnergyTransfer [J]
+  OnMeter=Cooling:EnergyTransfer:Zone:WEST PERIMETER [J]
+  OnMeter=General:Cooling:EnergyTransfer [J]
+  OnMeter=General:Cooling:EnergyTransfer:Zone:WEST PERIMETER [J]
+
+ Meters for 466,LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=HeatingCoils:EnergyTransfer [J]
+
+ Meters for 491,LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Heating Fluid Energy [J]
+  OnMeter=PlantLoopHeatingDemand:Facility [J]
+  OnMeter=PlantLoopHeatingDemand:HVAC [J]
+  OnMeter=HeatingCoils:PlantLoopHeatingDemand [J]
+
+ Meters for 528,LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=CoolingCoils:EnergyTransfer [J]
+
+ Meters for 541,LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Cooling Fluid Energy [J]
+  OnMeter=PlantLoopCoolingDemand:Facility [J]
+  OnMeter=PlantLoopCoolingDemand:HVAC [J]
+  OnMeter=CoolingCoils:PlantLoopCoolingDemand [J]
+
+ Meters for 582,LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=HeatingCoils:EnergyTransfer [J]
+
+ Meters for 583,LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Heating Fluid Energy [J]
+  OnMeter=PlantLoopHeatingDemand:Facility [J]
+  OnMeter=PlantLoopHeatingDemand:HVAC [J]
+  OnMeter=HeatingCoils:PlantLoopHeatingDemand [J]
+
+ Meters for 584,LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=CoolingCoils:EnergyTransfer [J]
+
+ Meters for 585,LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Cooling Fluid Energy [J]
+  OnMeter=PlantLoopCoolingDemand:Facility [J]
+  OnMeter=PlantLoopCoolingDemand:HVAC [J]
+  OnMeter=CoolingCoils:PlantLoopCoolingDemand [J]
+
+ Meters for 590,LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=HeatingCoils:EnergyTransfer [J]
+
+ Meters for 591,LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Heating Fluid Energy [J]
+  OnMeter=PlantLoopHeatingDemand:Facility [J]
+  OnMeter=PlantLoopHeatingDemand:HVAC [J]
+  OnMeter=HeatingCoils:PlantLoopHeatingDemand [J]
+
+ Meters for 592,LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=CoolingCoils:EnergyTransfer [J]
+
+ Meters for 593,LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Cooling Fluid Energy [J]
+  OnMeter=PlantLoopCoolingDemand:Facility [J]
+  OnMeter=PlantLoopCoolingDemand:HVAC [J]
+  OnMeter=CoolingCoils:PlantLoopCoolingDemand [J]
+
+ Meters for 598,LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Heating Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=HeatingCoils:EnergyTransfer [J]
+
+ Meters for 599,LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Heating Fluid Energy [J]
+  OnMeter=PlantLoopHeatingDemand:Facility [J]
+  OnMeter=PlantLoopHeatingDemand:HVAC [J]
+  OnMeter=HeatingCoils:PlantLoopHeatingDemand [J]
+
+ Meters for 600,LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Cooling Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:HVAC [J]
+  OnMeter=CoolingCoils:EnergyTransfer [J]
+
+ Meters for 601,LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Cooling Fluid Energy [J]
+  OnMeter=PlantLoopCoolingDemand:Facility [J]
+  OnMeter=PlantLoopCoolingDemand:HVAC [J]
+  OnMeter=CoolingCoils:PlantLoopCoolingDemand [J]
+
+ Meters for 605,BOMBACALOR_HP:Heat Pump Load Side Heat Transfer Energy [J]
+  OnMeter=EnergyTransfer:Facility [J]
+  OnMeter=EnergyTransfer:Plant [J]
+
+ Meters for 619,BOMBACALOR_HP:Heat Pump Electricity Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Plant [J]
+  OnMeter=Heating:Electricity [J]
+  OnMeter=Heat Pump:Heating:Electricity [J]
+
+ Meters for 668,BOMBACIRCULACION:Pump Electricity Energy [J]
+  OnMeter=Electricity:Facility [J]
+  OnMeter=Electricity:Plant [J]
+  OnMeter=Pumps:Electricity [J]
+  OnMeter=General:Pumps:Electricity [J]
+
+ Meters for 716,Site:Environmental Impact Total N2O Emissions Carbon Equivalent Mass [kg]
+  OnMeter=Carbon Equivalent:Facility [kg]
+  OnMeter=CarbonEquivalentEmissions:Carbon Equivalent [kg]
+
+ Meters for 741,Site:Environmental Impact Total CH4 Emissions Carbon Equivalent Mass [kg]
+  OnMeter=Carbon Equivalent:Facility [kg]
+  OnMeter=CarbonEquivalentEmissions:Carbon Equivalent [kg]
+
+ Meters for 742,Site:Environmental Impact Total CO2 Emissions Carbon Equivalent Mass [kg]
+  OnMeter=Carbon Equivalent:Facility [kg]
+  OnMeter=CarbonEquivalentEmissions:Carbon Equivalent [kg]
+
+ For Meter=EnergyTransfer:Facility [J], ResourceType=EnergyTransfer, contents are:
+  CORE:Zone Air System Sensible Heating Energy
+  CORE:Zone Air System Sensible Cooling Energy
+  EAST PERIMETER:Zone Air System Sensible Heating Energy
+  EAST PERIMETER:Zone Air System Sensible Cooling Energy
+  NORTH PERIMETER:Zone Air System Sensible Heating Energy
+  NORTH PERIMETER:Zone Air System Sensible Cooling Energy
+  PLENUM:Zone Air System Sensible Heating Energy
+  PLENUM:Zone Air System Sensible Cooling Energy
+  SOUTH PERIMETER:Zone Air System Sensible Heating Energy
+  SOUTH PERIMETER:Zone Air System Sensible Cooling Energy
+  WEST PERIMETER:Zone Air System Sensible Heating Energy
+  WEST PERIMETER:Zone Air System Sensible Cooling Energy
+  LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Heating Energy
+  LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Cooling Energy
+  LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Heating Energy
+  LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Cooling Energy
+  LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Heating Energy
+  LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Cooling Energy
+  LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Heating Energy
+  LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Cooling Energy
+  BOMBACALOR_HP:Heat Pump Load Side Heat Transfer Energy
+
+ For Meter=EnergyTransfer:Building [J], ResourceType=EnergyTransfer, Group=Building, contents are:
+  CORE:Zone Air System Sensible Heating Energy
+  CORE:Zone Air System Sensible Cooling Energy
+  EAST PERIMETER:Zone Air System Sensible Heating Energy
+  EAST PERIMETER:Zone Air System Sensible Cooling Energy
+  NORTH PERIMETER:Zone Air System Sensible Heating Energy
+  NORTH PERIMETER:Zone Air System Sensible Cooling Energy
+  PLENUM:Zone Air System Sensible Heating Energy
+  PLENUM:Zone Air System Sensible Cooling Energy
+  SOUTH PERIMETER:Zone Air System Sensible Heating Energy
+  SOUTH PERIMETER:Zone Air System Sensible Cooling Energy
+  WEST PERIMETER:Zone Air System Sensible Heating Energy
+  WEST PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:CORE [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  CORE:Zone Air System Sensible Heating Energy
+  CORE:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=Heating, contents are:
+  CORE:Zone Air System Sensible Heating Energy
+  EAST PERIMETER:Zone Air System Sensible Heating Energy
+  NORTH PERIMETER:Zone Air System Sensible Heating Energy
+  PLENUM:Zone Air System Sensible Heating Energy
+  SOUTH PERIMETER:Zone Air System Sensible Heating Energy
+  WEST PERIMETER:Zone Air System Sensible Heating Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:CORE [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  CORE:Zone Air System Sensible Heating Energy
+
+ For Meter=General:Heating:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=Heating, contents are:
+  CORE:Zone Air System Sensible Heating Energy
+  EAST PERIMETER:Zone Air System Sensible Heating Energy
+  NORTH PERIMETER:Zone Air System Sensible Heating Energy
+  PLENUM:Zone Air System Sensible Heating Energy
+  SOUTH PERIMETER:Zone Air System Sensible Heating Energy
+  WEST PERIMETER:Zone Air System Sensible Heating Energy
+
+ For Meter=General:Heating:EnergyTransfer:Zone:CORE [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  CORE:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=Cooling, contents are:
+  CORE:Zone Air System Sensible Cooling Energy
+  EAST PERIMETER:Zone Air System Sensible Cooling Energy
+  NORTH PERIMETER:Zone Air System Sensible Cooling Energy
+  PLENUM:Zone Air System Sensible Cooling Energy
+  SOUTH PERIMETER:Zone Air System Sensible Cooling Energy
+  WEST PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:CORE [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  CORE:Zone Air System Sensible Cooling Energy
+
+ For Meter=General:Cooling:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=Cooling, contents are:
+  CORE:Zone Air System Sensible Cooling Energy
+  EAST PERIMETER:Zone Air System Sensible Cooling Energy
+  NORTH PERIMETER:Zone Air System Sensible Cooling Energy
+  PLENUM:Zone Air System Sensible Cooling Energy
+  SOUTH PERIMETER:Zone Air System Sensible Cooling Energy
+  WEST PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=General:Cooling:EnergyTransfer:Zone:CORE [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  CORE:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:EAST PERIMETER [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  EAST PERIMETER:Zone Air System Sensible Heating Energy
+  EAST PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:EAST PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  EAST PERIMETER:Zone Air System Sensible Heating Energy
+
+ For Meter=General:Heating:EnergyTransfer:Zone:EAST PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  EAST PERIMETER:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:EAST PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  EAST PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=General:Cooling:EnergyTransfer:Zone:EAST PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  EAST PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:NORTH PERIMETER [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  NORTH PERIMETER:Zone Air System Sensible Heating Energy
+  NORTH PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:NORTH PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  NORTH PERIMETER:Zone Air System Sensible Heating Energy
+
+ For Meter=General:Heating:EnergyTransfer:Zone:NORTH PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  NORTH PERIMETER:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:NORTH PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  NORTH PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=General:Cooling:EnergyTransfer:Zone:NORTH PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  NORTH PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:PLENUM [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  PLENUM:Zone Air System Sensible Heating Energy
+  PLENUM:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:PLENUM [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PLENUM:Zone Air System Sensible Heating Energy
+
+ For Meter=General:Heating:EnergyTransfer:Zone:PLENUM [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  PLENUM:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:PLENUM [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PLENUM:Zone Air System Sensible Cooling Energy
+
+ For Meter=General:Cooling:EnergyTransfer:Zone:PLENUM [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  PLENUM:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:SOUTH PERIMETER [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  SOUTH PERIMETER:Zone Air System Sensible Heating Energy
+  SOUTH PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:SOUTH PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  SOUTH PERIMETER:Zone Air System Sensible Heating Energy
+
+ For Meter=General:Heating:EnergyTransfer:Zone:SOUTH PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  SOUTH PERIMETER:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:SOUTH PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  SOUTH PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=General:Cooling:EnergyTransfer:Zone:SOUTH PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  SOUTH PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:Zone:WEST PERIMETER [J], ResourceType=EnergyTransfer, Group=Zone, contents are:
+  WEST PERIMETER:Zone Air System Sensible Heating Energy
+  WEST PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=Heating:EnergyTransfer:Zone:WEST PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  WEST PERIMETER:Zone Air System Sensible Heating Energy
+
+ For Meter=General:Heating:EnergyTransfer:Zone:WEST PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Heating, Group=Zone, contents are:
+  WEST PERIMETER:Zone Air System Sensible Heating Energy
+
+ For Meter=Cooling:EnergyTransfer:Zone:WEST PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  WEST PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=General:Cooling:EnergyTransfer:Zone:WEST PERIMETER [J], ResourceType=EnergyTransfer, EndUse=Cooling, Group=Zone, contents are:
+  WEST PERIMETER:Zone Air System Sensible Cooling Energy
+
+ For Meter=EnergyTransfer:HVAC [J], ResourceType=EnergyTransfer, Group=HVAC, contents are:
+  LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Heating Energy
+  LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Cooling Energy
+  LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Heating Energy
+  LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Cooling Energy
+  LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Heating Energy
+  LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Cooling Energy
+  LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Heating Energy
+  LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Cooling Energy
+
+ For Meter=HeatingCoils:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=HeatingCoils, contents are:
+  LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Heating Energy
+  LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Heating Energy
+  LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Heating Energy
+  LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Heating Energy
+
+ For Meter=PlantLoopHeatingDemand:Facility [J], ResourceType=PlantLoopHeatingDemand, contents are:
+  LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Heating Fluid Energy
+  LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Heating Fluid Energy
+  LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Heating Fluid Energy
+  LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Heating Fluid Energy
+
+ For Meter=PlantLoopHeatingDemand:HVAC [J], ResourceType=PlantLoopHeatingDemand, Group=HVAC, contents are:
+  LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Heating Fluid Energy
+  LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Heating Fluid Energy
+  LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Heating Fluid Energy
+  LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Heating Fluid Energy
+
+ For Meter=HeatingCoils:PlantLoopHeatingDemand [J], ResourceType=PlantLoopHeatingDemand, EndUse=HeatingCoils, contents are:
+  LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Heating Fluid Energy
+  LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Heating Fluid Energy
+  LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Heating Fluid Energy
+  LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Heating Fluid Energy
+
+ For Meter=CoolingCoils:EnergyTransfer [J], ResourceType=EnergyTransfer, EndUse=CoolingCoils, contents are:
+  LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Cooling Energy
+  LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Cooling Energy
+  LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Cooling Energy
+  LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Cooling Energy
+
+ For Meter=PlantLoopCoolingDemand:Facility [J], ResourceType=PlantLoopCoolingDemand, contents are:
+  LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Cooling Fluid Energy
+  LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Cooling Fluid Energy
+  LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Cooling Fluid Energy
+  LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Cooling Fluid Energy
+
+ For Meter=PlantLoopCoolingDemand:HVAC [J], ResourceType=PlantLoopCoolingDemand, Group=HVAC, contents are:
+  LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Cooling Fluid Energy
+  LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Cooling Fluid Energy
+  LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Cooling Fluid Energy
+  LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Cooling Fluid Energy
+
+ For Meter=CoolingCoils:PlantLoopCoolingDemand [J], ResourceType=PlantLoopCoolingDemand, EndUse=CoolingCoils, contents are:
+  LOZARADIANTE_ZONAEAST:Zone Radiant HVAC Cooling Fluid Energy
+  LOZARADIANTE_ZONANORTH:Zone Radiant HVAC Cooling Fluid Energy
+  LOZARADIANTE_ZONASOUTH:Zone Radiant HVAC Cooling Fluid Energy
+  LOZARADIANTE_ZONAWEST:Zone Radiant HVAC Cooling Fluid Energy
+
+ For Meter=EnergyTransfer:Plant [J], ResourceType=EnergyTransfer, Group=Plant, contents are:
+  BOMBACALOR_HP:Heat Pump Load Side Heat Transfer Energy
+
+ For Meter=Electricity:Facility [J], ResourceType=Electricity, contents are:
+  BOMBACALOR_HP:Heat Pump Electricity Energy
+  BOMBACIRCULACION:Pump Electricity Energy
+
+ For Meter=Electricity:Plant [J], ResourceType=Electricity, Group=Plant, contents are:
+  BOMBACALOR_HP:Heat Pump Electricity Energy
+  BOMBACIRCULACION:Pump Electricity Energy
+
+ For Meter=Heating:Electricity [J], ResourceType=Electricity, EndUse=Heating, contents are:
+  BOMBACALOR_HP:Heat Pump Electricity Energy
+
+ For Meter=Heat Pump:Heating:Electricity [J], ResourceType=Electricity, EndUse=Heating, contents are:
+  BOMBACALOR_HP:Heat Pump Electricity Energy
+
+ For Meter=Pumps:Electricity [J], ResourceType=Electricity, EndUse=Pumps, contents are:
+  BOMBACIRCULACION:Pump Electricity Energy
+
+ For Meter=General:Pumps:Electricity [J], ResourceType=Electricity, EndUse=Pumps, contents are:
+  BOMBACIRCULACION:Pump Electricity Energy
+
+ For Meter=Carbon Equivalent:Facility [kg], ResourceType=Carbon Equivalent, contents are:
+  Site:Environmental Impact Total N2O Emissions Carbon Equivalent Mass
+  Site:Environmental Impact Total CH4 Emissions Carbon Equivalent Mass
+  Site:Environmental Impact Total CO2 Emissions Carbon Equivalent Mass
+
+ For Meter=CarbonEquivalentEmissions:Carbon Equivalent [kg], ResourceType=Carbon Equivalent, EndUse=CarbonEquivalentEmissions, contents are:
+  Site:Environmental Impact Total N2O Emissions Carbon Equivalent Mass
+  Site:Environmental Impact Total CH4 Emissions Carbon Equivalent Mass
+  Site:Environmental Impact Total CO2 Emissions Carbon Equivalent Mass

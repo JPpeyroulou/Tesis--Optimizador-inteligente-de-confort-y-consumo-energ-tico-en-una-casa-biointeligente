@@ -1,0 +1,24 @@
+sinergym.utils.wrappers:NormalizeAction:
+  normalize_range: !Tuple
+  - -1.0
+  - 1.0
+sinergym.utils.wrappers:NormalizeObservation:
+  automatic_update: true
+  epsilon: 1.0e-08
+  mean: null
+  var: null
+  count: 0.0001
+sinergym.utils.wrappers:LoggerWrapper:
+  storage_class: !Class 'sinergym.utils.logger.LoggerStorage'
+sinergym.utils.wrappers:CSVLogger:
+  monitor: true
+  info_excluded_keys:
+  - reward
+  - action
+  - timestep
+  - month
+  - day
+  - hour
+  - time_elapsed(hours)
+  - reward_weight
+  - is_raining

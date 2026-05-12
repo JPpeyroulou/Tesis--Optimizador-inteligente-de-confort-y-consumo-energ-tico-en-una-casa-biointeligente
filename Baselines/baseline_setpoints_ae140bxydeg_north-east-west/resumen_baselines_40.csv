@@ -1,0 +1,10 @@
+label,source,samples,costo_anual_acumulado,pmv_desviacion_acumulada_anual,status,message
+BL_sp20,/workspaces/sinergym/baseline_setpoints_ae140bxydeg_north-east-west/sp_20/eplusout.csv,8808,19097.96242937324,11448.420344019358,ok,
+BL_sp21,/workspaces/sinergym/baseline_setpoints_ae140bxydeg_north-east-west/sp_21/eplusout.csv,8808,26239.738339590658,8423.661080906153,ok,
+BL_sp22,/workspaces/sinergym/baseline_setpoints_ae140bxydeg_north-east-west/sp_22/eplusout.csv,8808,33109.047574673015,6160.5047776954425,ok,
+BL_sp23,/workspaces/sinergym/baseline_setpoints_ae140bxydeg_north-east-west/sp_23/eplusout.csv,8808,40274.36426621651,5259.819278682713,ok,
+BL_sp24,/workspaces/sinergym/baseline_setpoints_ae140bxydeg_north-east-west/sp_24/eplusout.csv,8808,47257.57305177462,5180.9803169085235,ok,
+BL_sp25,/workspaces/sinergym/baseline_setpoints_ae140bxydeg_north-east-west/sp_25/eplusout.csv,8808,53409.58275423827,5520.372695478494,ok,
+BL_sp26,/workspaces/sinergym/baseline_setpoints_ae140bxydeg_north-east-west/sp_26/eplusout.csv,8808,57850.505801758445,6233.06197717241,ok,
+BL_sp27,/workspaces/sinergym/baseline_setpoints_ae140bxydeg_north-east-west/sp_27/eplusout.csv,8808,61227.11609955492,7516.618981305582,ok,
+BL_sp28,/workspaces/sinergym/baseline_setpoints_ae140bxydeg_north-east-west/sp_28/eplusout.csv,8808,63866.80266819851,8747.925395246491,ok,

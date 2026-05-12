@@ -1,0 +1,13 @@
+{
+  "tarifa": "residencial_doble_horario",
+  "vigente_desde": "2025-01-01",
+  "precios": {
+    "punta": 11.493,
+    "fuera_de_punta": 4.556
+  },
+  "horarios": {
+    "punta_inicio": 17,
+    "punta_fin": 21,
+    "dias_punta": ["lunes", "martes", "miercoles", "jueves", "viernes"]
+  }
+}

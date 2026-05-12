@@ -1,0 +1,121 @@
+!EplusEnv
+building_file: idf_multiplesZonas_ae140bxydeg.epJSON
+weather_files: URY_Montevideo.epw
+action_space: !GymSpace
+  class: !Class 'gymnasium.spaces.box.Box'
+  arguments:
+    low: !NumpyArray
+      object:
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 20.0
+      dtype: numpy:float32
+    high: !NumpyArray
+      object:
+      - 1.0
+      - 0.0
+      - 1.0
+      - 1.0
+      - 40.0
+      dtype: numpy:float32
+    shape: !Tuple
+    - 5
+    dtype: numpy:float32
+time_variables:
+- month
+- day_of_month
+- hour
+variables:
+  lozaradiante_zonanorth_heating_rate: !Tuple
+  - Zone Radiant HVAC Heating Rate
+  - LOZARADIANTE_ZONANORTH
+  lozaradiante_zonasouth_heating_rate: !Tuple
+  - Zone Radiant HVAC Heating Rate
+  - LOZARADIANTE_ZONASOUTH
+  lozaradiante_zonaeast_heating_rate: !Tuple
+  - Zone Radiant HVAC Heating Rate
+  - LOZARADIANTE_ZONAEAST
+  lozaradiante_zonawest_heating_rate: !Tuple
+  - Zone Radiant HVAC Heating Rate
+  - LOZARADIANTE_ZONAWEST
+  outdoor_temperature: !Tuple
+  - Site Outdoor Air DryBulb Temperature
+  - Environment
+  outdoor_humidity: !Tuple
+  - Site Outdoor Air Relative Humidity
+  - Environment
+  north_perimeter_air_temperature: !Tuple
+  - Zone Air Temperature
+  - NORTH PERIMETER
+  south_perimeter_air_temperature: !Tuple
+  - Zone Air Temperature
+  - SOUTH PERIMETER
+  east_perimeter_air_temperature: !Tuple
+  - Zone Air Temperature
+  - EAST PERIMETER
+  west_perimeter_air_temperature: !Tuple
+  - Zone Air Temperature
+  - WEST PERIMETER
+  north_perimeter_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - NORTH PERIMETER
+  south_perimeter_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - SOUTH PERIMETER
+  east_perimeter_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - EAST PERIMETER
+  west_perimeter_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - WEST PERIMETER
+  heat_pump_power: !Tuple
+  - Heat Pump Electricity Rate
+  - BOMBACALOR_HP
+meters:
+  total_electricity_HVAC: Heat Pump:Heating:Electricity
+actuators:
+  electrovalve_north: !Tuple
+  - Schedule:Compact
+  - Schedule Value
+  - ZonaNorth
+  electrovalve_south: !Tuple
+  - Schedule:Compact
+  - Schedule Value
+  - ZonaSouth
+  electrovalve_east: !Tuple
+  - Schedule:Compact
+  - Schedule Value
+  - ZonaEast
+  electrovalve_west: !Tuple
+  - Schedule:Compact
+  - Schedule Value
+  - ZonaWest
+  bomba: !Tuple
+  - Schedule:Compact
+  - Schedule Value
+  - Temperatura_Calefaccion_Schedule
+context: {}
+initial_context: null
+weather_variability: null
+reward: !Class 'sinergym.utils.rewards.NuestroRewardMultizona'
+reward_kwargs:
+  temperature_variables:
+  - north_perimeter_air_temperature
+  - east_perimeter_air_temperature
+  - west_perimeter_air_temperature
+  humidity_variables:
+  - north_perimeter_air_humidity
+  - east_perimeter_air_humidity
+  - west_perimeter_air_humidity
+  energy_variables:
+  - heat_pump_power
+  energy_weight: 0.5
+  lambda_energy: 1.0
+  lambda_temperature: 25.0
+  tarifa_json: /workspaces/sinergym/sinergym/data/tarifas/tarifas_ute.json
+max_ep_store: 505
+env_name: Eplus-PPO-training-nuestroMultizona_2026-03-11_03-34_EVALUATION
+building_config: null
+seed: null

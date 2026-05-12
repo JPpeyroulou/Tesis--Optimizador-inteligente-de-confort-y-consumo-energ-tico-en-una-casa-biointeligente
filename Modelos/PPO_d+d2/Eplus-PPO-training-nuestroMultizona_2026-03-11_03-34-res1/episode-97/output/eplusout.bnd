@@ -1,0 +1,233 @@
+Program Version,EnergyPlus, Version 25.1.0-68a4a7c774, YMD=2026.03.11 04:14
+! This file shows details about the branches, nodes, and other
+! elements of the flow connections.
+! This file is intended for use in "debugging" potential problems
+! that may also be detected by the program, but may be more easily
+! identified by "eye".
+! This file is also intended to support software which draws a
+! schematic diagram of the HVAC system.
+! ===============================================================
+! #Nodes,<Number of Unique Nodes>
+ #Nodes,23
+! <Node>,<NodeNumber>,<Node Name>,<Node Fluid Type>,<# Times Node Referenced After Definition>
+ Node,1,NODO_SALIDA_AIRE_HP,Air,1
+ Node,2,NODO_SUPPLY_INLET,Water,3
+ Node,3,NODO_SALIDA_BOMBA,Water,4
+ Node,4,NODO_ENTRADA_CONDENSADOR,Water,4
+ Node,5,NODO_SALIDA_CONDENSADOR,Water,6
+ Node,6,NODO_SUPPLY_OUTLET,Water,3
+ Node,7,NODO_DEMAND_INLET,Water,3
+ Node,8,NODO_DEMAND_OUTLET,Water,3
+ Node,9,NODO_AIRE_ZONA_NORTH,Air,1
+ Node,10,NODO_AIRE_ZONA_SOUTH,Air,1
+ Node,11,NODO_DEMAND_INLET_NORTH,Water,2
+ Node,12,NODO_DEMAND_INLET_SOUTH,Water,2
+ Node,13,NODO_DEMAND_OUTLET_NORTH,Water,2
+ Node,14,NODO_DEMAND_OUTLET_SOUTH,Water,2
+ Node,15,NODO_IN_PIPE_OUT_DEMANDA,Water,2
+ Node,16,NODO_OUT_PIPE_IN_DEMANDA,Water,2
+ Node,17,NODO_DEMAND_INLET_EAST,Water,1
+ Node,18,NODO_DEMAND_OUTLET_EAST,Water,1
+ Node,19,NODO_DEMAND_INLET_WEST,Water,1
+ Node,20,NODO_DEMAND_OUTLET_WEST,Water,1
+ Node,21,NODO_AIRE_ZONA_EAST,Air,0
+ Node,22,NODO_AIRE_ZONA_WEST,Air,0
+ Node,23,NODO_AIREEXTERIOR_HP,Air,1
+! ===============================================================
+! Suspicious nodes have 0 references.  It is normal for some nodes, however.
+! Listing nodes with 0 references (culled from previous list):
+! <Suspicious Node>,<NodeNumber>,<Node Name>,<Node Fluid Type>,<# Times Node Referenced After Definition>
+ Suspicious Node,21,NODO_AIRE_ZONA_EAST,Air,0
+ Suspicious Node,22,NODO_AIRE_ZONA_WEST,Air,0
+! ===============================================================
+! <#Branch Lists>,<Number of Branch Lists>
+ #Branch Lists,2
+! <Branch List>,<Branch List Count>,<Branch List Name>,<Loop Name>,<Loop Type>,<Number of Branches>
+! <Branch>,<Branch Count>,<Branch Name>,<Loop Name>,<Loop Type>,<Branch Inlet Node Name>,<Branch Outlet Node Name>
+ Branch List,1,BRANCH_DEMANDA,BUCLE_CALEFACCION,Plant Demand,6
+   Branch,1,RAMA_IN_SPLITTER,BUCLE_CALEFACCION,Plant Demand,NODO_DEMAND_INLET,NODO_OUT_PIPE_IN_DEMANDA
+   Branch,2,RAMA_DEMANDA_SOUTH,BUCLE_CALEFACCION,Plant Demand,NODO_DEMAND_INLET_SOUTH,NODO_DEMAND_OUTLET_SOUTH
+   Branch,3,RAMA_DEMANDA_NORTH,BUCLE_CALEFACCION,Plant Demand,NODO_DEMAND_INLET_NORTH,NODO_DEMAND_OUTLET_NORTH
+   Branch,4,RAMA_DEMANDA_EAST,BUCLE_CALEFACCION,Plant Demand,NODO_DEMAND_INLET_EAST,NODO_DEMAND_OUTLET_EAST
+   Branch,5,RAMA_DEMANDA_WEST,BUCLE_CALEFACCION,Plant Demand,NODO_DEMAND_INLET_WEST,NODO_DEMAND_OUTLET_WEST
+   Branch,6,RAMA_OUT_MIXER,BUCLE_CALEFACCION,Plant Demand,NODO_IN_PIPE_OUT_DEMANDA,NODO_DEMAND_OUTLET
+ Branch List,2,BRANCH_SUMINISTRO,BUCLE_CALEFACCION,Plant Supply,1
+   Branch,1,RAMA_SUMINISTRO,BUCLE_CALEFACCION,Plant Supply,NODO_SUPPLY_INLET,NODO_SUPPLY_OUTLET
+! ===============================================================
+! <#Supply Air Paths>,<Number of Supply Air Paths>
+ #Supply Air Paths,0
+! <Supply Air Path>,<Supply Air Path Count>,<Supply Air Path Name>,<AirLoopHVAC Name>
+! <#Components on Supply Air Path>,<Number of Components>
+! <Supply Air Path Component>,<Component Count>,<Component Type>,<Component Name>,<AirLoopHVAC Name>
+! <#Outlet Nodes on Supply Air Path Component>,<Number of Nodes>
+! <Supply Air Path Component Nodes>,<Node Count>,<Component Type>,<Component Name>,<Inlet Node Name>,<Outlet Node Name>,<AirLoopHVAC Name>
+! ===============================================================
+! <#Return Air Paths>,<Number of Return Air Paths>
+ #Return Air Paths,0
+! <Return Air Path>,<Return Air Path Count>,<Return Air Path Name>,<AirLoopHVAC Name>
+! <#Components on Return Air Path>,<Number of Components>
+! <Return Air Path Component>,<Component Count>,<Component Type>,<Component Name>,<AirLoopHVAC Name>
+! <#Inlet Nodes on Return Air Path Component>,<Number of Nodes>
+! <Return Air Path Component Nodes>,<Node Count>,<Component Type>,<Component Name>,<Inlet Node Name>,<Outlet Node Name>,<AirLoopHVAC Name>
+! ===============================================================
+! #Outdoor Air Nodes,<Number of Outdoor Air Nodes>
+ #Outdoor Air Nodes,1
+! <Outdoor Air Node>,<NodeNumber>,<Node Name>
+ Outdoor Air Node,23,NODO_AIREEXTERIOR_HP
+! ===============================================================
+! <#Component Sets>,<Number of Component Sets>
+ #Component Sets,10
+! <Component Set>,<Component Set Count>,<Parent Object Type>,<Parent Object Name>,<Component Type>,<Component Name>,<Inlet Node ID>,<Outlet Node ID>,<Description>
+ Component Set,1,BRANCH,RAMA_SUMINISTRO,PUMP:CONSTANTSPEED,BOMBACIRCULACION,NODO_SUPPLY_INLET,NODO_SALIDA_BOMBA,Water Nodes
+ Component Set,2,BRANCH,RAMA_SUMINISTRO,PIPE:ADIABATIC,CONEXION_BOMBA_HP,NODO_SALIDA_BOMBA,NODO_ENTRADA_CONDENSADOR,Pipe Nodes
+ Component Set,3,BRANCH,RAMA_SUMINISTRO,HEATPUMP:PLANTLOOP:EIR:HEATING,BOMBACALOR_HP,NODO_ENTRADA_CONDENSADOR,NODO_SALIDA_CONDENSADOR,Hot Water Nodes
+ Component Set,4,BRANCH,RAMA_SUMINISTRO,PIPE:ADIABATIC,CIERRE_SUMINISTRO,NODO_SALIDA_CONDENSADOR,NODO_SUPPLY_OUTLET,Pipe Nodes
+ Component Set,5,BRANCH,RAMA_DEMANDA_EAST,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONAEAST,NODO_DEMAND_INLET_EAST,NODO_DEMAND_OUTLET_EAST,Hot Water Nodes
+ Component Set,6,BRANCH,RAMA_DEMANDA_NORTH,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONANORTH,NODO_DEMAND_INLET_NORTH,NODO_DEMAND_OUTLET_NORTH,Hot Water Nodes
+ Component Set,7,BRANCH,RAMA_DEMANDA_SOUTH,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONASOUTH,NODO_DEMAND_INLET_SOUTH,NODO_DEMAND_OUTLET_SOUTH,Hot Water Nodes
+ Component Set,8,BRANCH,RAMA_DEMANDA_WEST,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONAWEST,NODO_DEMAND_INLET_WEST,NODO_DEMAND_OUTLET_WEST,Hot Water Nodes
+ Component Set,9,BRANCH,RAMA_IN_SPLITTER,PIPE:ADIABATIC,INICIO_DEMANDA,NODO_DEMAND_INLET,NODO_OUT_PIPE_IN_DEMANDA,Pipe Nodes
+ Component Set,10,BRANCH,RAMA_OUT_MIXER,PIPE:ADIABATIC,FIN_DEMANDA,NODO_IN_PIPE_OUT_DEMANDA,NODO_DEMAND_OUTLET,Pipe Nodes
+! ===============================================================
+! <# Plant Loops>,<Number of Plant Loops>
+ #Plant Loops,1
+! <Plant Loop>,<Plant Loop Name>,<Loop Type>,<Inlet Node Name>,<Outlet Node Name>,<Branch List>,<Connector List>
+! <Plant Loop Connector>,<Connector Type>,<Connector Name>,<Loop Name>,<Loop Type>,<Number of Inlets/Outlets>
+! <Plant Loop Connector Branches>,<Connector Node Count>,<Connector Type>,<Connector Name>,<Inlet Branch>,<Outlet Branch>,<Loop Name>,<Loop Type>
+! <Plant Loop Connector Nodes>,<Connector Node Count>,<Connector Type>,<Connector Name>,<Inlet Node>,<Outlet Node>,<Loop Name>,<Loop Type>
+! <Plant Loop Supply Connection>,<Plant Loop Name>,<Supply Side Outlet Node Name>,<Demand Side Inlet Node Name>
+! <Plant Loop Return Connection>,<Plant Loop Name>,<Demand Side Outlet Node Name>,<Supply Side Inlet Node Name>
+ Plant Loop,BUCLE_CALEFACCION,Demand,NODO_DEMAND_INLET,NODO_DEMAND_OUTLET,BRANCH_DEMANDA,CONECTORES_DEMANDA
+   Plant Loop Connector,Splitter,SPLITTER_DEMANDA,BUCLE_CALEFACCION,Demand,4
+     Plant Loop Connector Branches,1,Splitter,SPLITTER_DEMANDA,RAMA_IN_SPLITTER,RAMA_DEMANDA_NORTH,BUCLE_CALEFACCION,Demand
+     Plant Loop Connector Nodes,   1,Splitter,SPLITTER_DEMANDA,NODO_OUT_PIPE_IN_DEMANDA,NODO_DEMAND_INLET_NORTH,BUCLE_CALEFACCION,Demand
+     Plant Loop Connector Branches,2,Splitter,SPLITTER_DEMANDA,RAMA_IN_SPLITTER,RAMA_DEMANDA_SOUTH,BUCLE_CALEFACCION,Demand
+     Plant Loop Connector Nodes,   2,Splitter,SPLITTER_DEMANDA,NODO_OUT_PIPE_IN_DEMANDA,NODO_DEMAND_INLET_SOUTH,BUCLE_CALEFACCION,Demand
+     Plant Loop Connector Branches,3,Splitter,SPLITTER_DEMANDA,RAMA_IN_SPLITTER,RAMA_DEMANDA_WEST,BUCLE_CALEFACCION,Demand
+     Plant Loop Connector Nodes,   3,Splitter,SPLITTER_DEMANDA,NODO_OUT_PIPE_IN_DEMANDA,NODO_DEMAND_INLET_WEST,BUCLE_CALEFACCION,Demand
+     Plant Loop Connector Branches,4,Splitter,SPLITTER_DEMANDA,RAMA_IN_SPLITTER,RAMA_DEMANDA_EAST,BUCLE_CALEFACCION,Demand
+     Plant Loop Connector Nodes,   4,Splitter,SPLITTER_DEMANDA,NODO_OUT_PIPE_IN_DEMANDA,NODO_DEMAND_INLET_EAST,BUCLE_CALEFACCION,Demand
+   Plant Loop Connector,Mixer,MIXER_DEMANDA,BUCLE_CALEFACCION,Demand,4
+     Plant Loop Connector Branches,1,Mixer,MIXER_DEMANDA,RAMA_DEMANDA_NORTH,RAMA_OUT_MIXER,BUCLE_CALEFACCION,Demand
+     Plant Loop Connector Nodes,   1,Mixer,MIXER_DEMANDA,NODO_DEMAND_OUTLET_NORTH,NODO_IN_PIPE_OUT_DEMANDA,BUCLE_CALEFACCION,Demand
+     Plant Loop Connector Branches,2,Mixer,MIXER_DEMANDA,RAMA_DEMANDA_SOUTH,RAMA_OUT_MIXER,BUCLE_CALEFACCION,Demand
+     Plant Loop Connector Nodes,   2,Mixer,MIXER_DEMANDA,NODO_DEMAND_OUTLET_SOUTH,NODO_IN_PIPE_OUT_DEMANDA,BUCLE_CALEFACCION,Demand
+     Plant Loop Connector Branches,3,Mixer,MIXER_DEMANDA,RAMA_DEMANDA_WEST,RAMA_OUT_MIXER,BUCLE_CALEFACCION,Demand
+     Plant Loop Connector Nodes,   3,Mixer,MIXER_DEMANDA,NODO_DEMAND_OUTLET_WEST,NODO_IN_PIPE_OUT_DEMANDA,BUCLE_CALEFACCION,Demand
+     Plant Loop Connector Branches,4,Mixer,MIXER_DEMANDA,RAMA_DEMANDA_EAST,RAMA_OUT_MIXER,BUCLE_CALEFACCION,Demand
+     Plant Loop Connector Nodes,   4,Mixer,MIXER_DEMANDA,NODO_DEMAND_OUTLET_EAST,NODO_IN_PIPE_OUT_DEMANDA,BUCLE_CALEFACCION,Demand
+ Plant Loop,BUCLE_CALEFACCION,Supply,NODO_SUPPLY_INLET,NODO_SUPPLY_OUTLET,BRANCH_SUMINISTRO,
+ Plant Loop Supply Connection,BUCLE_CALEFACCION,NODO_SUPPLY_OUTLET,NODO_DEMAND_INLET
+ Plant Loop Return Connection,BUCLE_CALEFACCION,NODO_DEMAND_OUTLET,NODO_SUPPLY_INLET
+! ===============================================================
+! <# Condenser Loops>,<Number of Condenser Loops>
+ #Condenser Loops,0
+! <Condenser Loop>,<Condenser Loop Name>,<Loop Type>,<Inlet Node Name>,<Outlet Node Name>,<Branch List>,<Connector List>
+! <Condenser Loop Connector>,<Connector Type>,<Connector Name>,<Loop Name>,<Loop Type>,<Number of Inlets/Outlets>
+! <Condenser Loop Connector Branches>,<Connector Node Count>,<Connector Type>,<Connector Name>,<Inlet Branch>,<Outlet Branch>,<Loop Name>,<Loop Type>
+! <Condenser Loop Connector Nodes>,<Connector Node Count>,<Connector Type>,<Connector Name>,<Inlet Node>,<Outlet Node>,<Loop Name>,<Loop Type>
+! <Condenser Loop Supply Connection>,<Condenser Loop Name>,<Supply Side Outlet Node Name>,<Demand Side Inlet Node Name>
+! <Condenser Loop Return Connection>,<Condenser Loop Name>,<Demand Side Outlet Node Name>,<Supply Side Inlet Node Name>
+! ===============================================================
+! <# Controlled Zones>,<Number of Controlled Zones>
+ #Controlled Zones,4
+! <Controlled Zone>,<Controlled Zone Name>,<Equip List Name>,<Control List Name>,<Zone Node Name>,<# Inlet Nodes>,<# Exhaust Nodes>,<# Return Nodes>
+! <Controlled Zone Inlet>,<Inlet Node Count>,<Controlled Zone Name>,<Supply Air Inlet Node Name>,<SD Sys:Cooling/Heating [DD:Cooling] Inlet Node Name>,<DD Sys:Heating Inlet Node Name>
+! <Controlled Zone Exhaust>,<Exhaust Node Count>,<Controlled Zone Name>,<Exhaust Air Node Name>
+ Controlled Zone,EAST PERIMETER,LISTAEQUIPOS_EAST_PERIMETER,,NODO_AIRE_ZONA_EAST,0,0,0
+ Controlled Zone,NORTH PERIMETER,LISTAEQUIPOS_NORTH_PERIMETER,,NODO_AIRE_ZONA_NORTH,0,0,0
+ Controlled Zone,SOUTH PERIMETER,LISTAEQUIPOS_SOUTH_PERIMETER,,NODO_AIRE_ZONA_SOUTH,0,0,0
+ Controlled Zone,WEST PERIMETER,LISTAEQUIPOS_WEST_PERIMETER,,NODO_AIRE_ZONA_WEST,0,0,0
+! ===============================================================
+! <#Zone Equipment Lists>,<Number of Zone Equipment Lists>
+ #Zone Equipment Lists,4
+! <Zone Equipment List>,<Zone Equipment List Count>,<Zone Equipment List Name>,<Zone Name>,<Number of Components>
+! <Zone Equipment Component>,<Component Count>,<Component Type>,<Component Name>,<Zone Name>,<Heating Priority>,<Cooling Priority>
+ Zone Equipment List,2,LISTAEQUIPOS_EAST_PERIMETER,EAST PERIMETER,1
+   Zone Equipment Component,1,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONAEAST,EAST PERIMETER,1,1
+ Zone Equipment List,3,LISTAEQUIPOS_NORTH_PERIMETER,NORTH PERIMETER,1
+   Zone Equipment Component,1,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONANORTH,NORTH PERIMETER,1,1
+ Zone Equipment List,5,LISTAEQUIPOS_SOUTH_PERIMETER,SOUTH PERIMETER,1
+   Zone Equipment Component,1,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONASOUTH,SOUTH PERIMETER,1,1
+ Zone Equipment List,6,LISTAEQUIPOS_WEST_PERIMETER,WEST PERIMETER,1
+   Zone Equipment Component,1,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONAWEST,WEST PERIMETER,1,1
+! ===============================================================
+! <#AirLoopHVACs>,<Number of AirLoopHVACs>
+ #AirLoopHVACs,0
+! <AirLoopHVAC>,<Air Loop Name>,<# Return Nodes>,<# Supply Nodes>,<# Zones Cooled>,<# Zones Heated>,<Outdoor Air Used>
+! <AirLoop Return Connections>,<Connection Count>,<AirLoopHVAC Name>,<Zn Eqp Return Node #>,<Zn Eqp Return Node Name>,<AirLoop Return Node #>,<Air Loop Return Node Name>
+! <AirLoop Supply Connections>,<Connection Count>,<AirLoopHVAC Name>,<Zn Eqp Supply Node #>,<Zn Eqp Supply Node Name>,<AirLoop Supply Node #>,<Air Loop Supply Node Name>
+! <Cooled Zone Info>,<Cooled Zone Count>,<Cooled Zone Name>,<Cooled Zone Inlet Node #>,<Cooled Zone Inlet Node Name>,<AirLoopHVAC Name>
+! <Heated Zone Info>,<Heated Zone Count>,<Heated Zone Name>,<Heated Zone Inlet Node #>,<Heated Zone Inlet Node Name>,<AirLoopHVAC Name>
+! <Outdoor Air Connections>,<OA Inlet Node #>,<OA Return Air Inlet Node Name>,<OA Outlet Node #>,<OA Mixed Air Outlet Node Name>,<AirLoopHVAC Name>
+! <AirLoopHVAC Connector>,<Connector Type>,<Connector Name>,<Loop Name>,<Loop Type>,<Number of Inlets/Outlets>
+! <AirLoopHVAC Connector Branches>,<Connector Node Count>,<Connector Type>,<Connector Name>,<Inlet Branch>,<Outlet Branch>,<Loop Name>,<Loop Type>
+! <AirLoopHVAC Connector Nodes>,<Connector Node Count>,<Connector Type>,<Connector Name>,<Inlet Node>,<Outlet Node>,<Loop Name>,<Loop Type>
+! ===============================================================
+! <#Parent Node Connections>,<Number of Parent Node Connections>
+ #Parent Node Connections,22
+! <Parent Node Connection>,<Node Name>,<Node ObjectType>,<Node ObjectName>,<Node ConnectionType>,<Node FluidStream>
+ Parent Node Connection,NODO_SUPPLY_INLET,BRANCH,RAMA_SUMINISTRO,Inlet,1
+ Parent Node Connection,NODO_SALIDA_BOMBA,BRANCH,RAMA_SUMINISTRO,Internal,1
+ Parent Node Connection,NODO_ENTRADA_CONDENSADOR,BRANCH,RAMA_SUMINISTRO,Internal,1
+ Parent Node Connection,NODO_SALIDA_CONDENSADOR,BRANCH,RAMA_SUMINISTRO,Internal,1
+ Parent Node Connection,NODO_SUPPLY_OUTLET,BRANCH,RAMA_SUMINISTRO,Outlet,1
+ Parent Node Connection,NODO_DEMAND_INLET_EAST,BRANCH,RAMA_DEMANDA_EAST,Inlet,1
+ Parent Node Connection,NODO_DEMAND_OUTLET_EAST,BRANCH,RAMA_DEMANDA_EAST,Outlet,1
+ Parent Node Connection,NODO_DEMAND_INLET_NORTH,BRANCH,RAMA_DEMANDA_NORTH,Inlet,1
+ Parent Node Connection,NODO_DEMAND_OUTLET_NORTH,BRANCH,RAMA_DEMANDA_NORTH,Outlet,1
+ Parent Node Connection,NODO_DEMAND_INLET_SOUTH,BRANCH,RAMA_DEMANDA_SOUTH,Inlet,1
+ Parent Node Connection,NODO_DEMAND_OUTLET_SOUTH,BRANCH,RAMA_DEMANDA_SOUTH,Outlet,1
+ Parent Node Connection,NODO_DEMAND_INLET_WEST,BRANCH,RAMA_DEMANDA_WEST,Inlet,1
+ Parent Node Connection,NODO_DEMAND_OUTLET_WEST,BRANCH,RAMA_DEMANDA_WEST,Outlet,1
+ Parent Node Connection,NODO_DEMAND_INLET,BRANCH,RAMA_IN_SPLITTER,Inlet,1
+ Parent Node Connection,NODO_OUT_PIPE_IN_DEMANDA,BRANCH,RAMA_IN_SPLITTER,Outlet,1
+ Parent Node Connection,NODO_IN_PIPE_OUT_DEMANDA,BRANCH,RAMA_OUT_MIXER,Inlet,1
+ Parent Node Connection,NODO_DEMAND_OUTLET,BRANCH,RAMA_OUT_MIXER,Outlet,1
+ Parent Node Connection,NODO_SUPPLY_INLET,PLANTLOOP,BUCLE_CALEFACCION,Inlet,1
+ Parent Node Connection,NODO_SUPPLY_OUTLET,PLANTLOOP,BUCLE_CALEFACCION,Outlet,1
+ Parent Node Connection,NODO_DEMAND_INLET,PLANTLOOP,BUCLE_CALEFACCION,Inlet,1
+ Parent Node Connection,NODO_DEMAND_OUTLET,PLANTLOOP,BUCLE_CALEFACCION,Outlet,1
+ Parent Node Connection,NODO_SALIDA_CONDENSADOR,PLANTLOOP,BUCLE_CALEFACCION,Sensor,1
+! ===============================================================
+! <#Non-Parent Node Connections>,<Number of Non-Parent Node Connections>
+ #Non-Parent Node Connections,38
+! <Non-Parent Node Connection>,<Node Name>,<Node ObjectType>,<Node ObjectName>,<Node ConnectionType>,<Node FluidStream>
+ Non-Parent Node Connection,NODO_AIRE_ZONA_SOUTH,ZONEHVAC:EQUIPMENTCONNECTIONS,SOUTH PERIMETER,ZoneNode,1
+ Non-Parent Node Connection,NODO_AIRE_ZONA_EAST,ZONEHVAC:EQUIPMENTCONNECTIONS,EAST PERIMETER,ZoneNode,1
+ Non-Parent Node Connection,NODO_AIRE_ZONA_WEST,ZONEHVAC:EQUIPMENTCONNECTIONS,WEST PERIMETER,ZoneNode,1
+ Non-Parent Node Connection,NODO_AIRE_ZONA_NORTH,ZONEHVAC:EQUIPMENTCONNECTIONS,NORTH PERIMETER,ZoneNode,1
+ Non-Parent Node Connection,NODO_AIREEXTERIOR_HP,OUTDOORAIR:NODE,OutdoorAir:Node,OutdoorAir,1
+ Non-Parent Node Connection,NODO_SALIDA_CONDENSADOR,SETPOINTMANAGER:SCHEDULED,SETPOINT_TEMP_BUCLE,Setpoint,1
+ Non-Parent Node Connection,NODO_SALIDA_CONDENSADOR,PIPE:ADIABATIC,CIERRE_SUMINISTRO,Inlet,1
+ Non-Parent Node Connection,NODO_SUPPLY_OUTLET,PIPE:ADIABATIC,CIERRE_SUMINISTRO,Outlet,1
+ Non-Parent Node Connection,NODO_SALIDA_BOMBA,PIPE:ADIABATIC,CONEXION_BOMBA_HP,Inlet,1
+ Non-Parent Node Connection,NODO_ENTRADA_CONDENSADOR,PIPE:ADIABATIC,CONEXION_BOMBA_HP,Outlet,1
+ Non-Parent Node Connection,NODO_IN_PIPE_OUT_DEMANDA,PIPE:ADIABATIC,FIN_DEMANDA,Inlet,1
+ Non-Parent Node Connection,NODO_DEMAND_OUTLET,PIPE:ADIABATIC,FIN_DEMANDA,Outlet,1
+ Non-Parent Node Connection,NODO_DEMAND_INLET,PIPE:ADIABATIC,INICIO_DEMANDA,Inlet,1
+ Non-Parent Node Connection,NODO_OUT_PIPE_IN_DEMANDA,PIPE:ADIABATIC,INICIO_DEMANDA,Outlet,1
+ Non-Parent Node Connection,NODO_OUT_PIPE_IN_DEMANDA,CONNECTOR:SPLITTER,SPLITTER_DEMANDA,Inlet,1
+ Non-Parent Node Connection,NODO_DEMAND_INLET_NORTH,CONNECTOR:SPLITTER,SPLITTER_DEMANDA,Outlet,1
+ Non-Parent Node Connection,NODO_DEMAND_INLET_SOUTH,CONNECTOR:SPLITTER,SPLITTER_DEMANDA,Outlet,1
+ Non-Parent Node Connection,NODO_DEMAND_INLET_WEST,CONNECTOR:SPLITTER,SPLITTER_DEMANDA,Outlet,1
+ Non-Parent Node Connection,NODO_DEMAND_INLET_EAST,CONNECTOR:SPLITTER,SPLITTER_DEMANDA,Outlet,1
+ Non-Parent Node Connection,NODO_IN_PIPE_OUT_DEMANDA,CONNECTOR:MIXER,MIXER_DEMANDA,Outlet,1
+ Non-Parent Node Connection,NODO_DEMAND_OUTLET_NORTH,CONNECTOR:MIXER,MIXER_DEMANDA,Inlet,1
+ Non-Parent Node Connection,NODO_DEMAND_OUTLET_SOUTH,CONNECTOR:MIXER,MIXER_DEMANDA,Inlet,1
+ Non-Parent Node Connection,NODO_DEMAND_OUTLET_WEST,CONNECTOR:MIXER,MIXER_DEMANDA,Inlet,1
+ Non-Parent Node Connection,NODO_DEMAND_OUTLET_EAST,CONNECTOR:MIXER,MIXER_DEMANDA,Inlet,1
+ Non-Parent Node Connection,NODO_ENTRADA_CONDENSADOR,HEATPUMP:PLANTLOOP:EIR:HEATING,BOMBACALOR_HP,Inlet,1
+ Non-Parent Node Connection,NODO_SALIDA_CONDENSADOR,HEATPUMP:PLANTLOOP:EIR:HEATING,BOMBACALOR_HP,Outlet,1
+ Non-Parent Node Connection,NODO_AIREEXTERIOR_HP,HEATPUMP:PLANTLOOP:EIR:HEATING,BOMBACALOR_HP,Inlet,2
+ Non-Parent Node Connection,NODO_SALIDA_AIRE_HP,HEATPUMP:PLANTLOOP:EIR:HEATING,BOMBACALOR_HP,Outlet,2
+ Non-Parent Node Connection,NODO_DEMAND_INLET_EAST,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONAEAST,Inlet,1
+ Non-Parent Node Connection,NODO_DEMAND_OUTLET_EAST,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONAEAST,Outlet,1
+ Non-Parent Node Connection,NODO_DEMAND_INLET_NORTH,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONANORTH,Inlet,1
+ Non-Parent Node Connection,NODO_DEMAND_OUTLET_NORTH,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONANORTH,Outlet,1
+ Non-Parent Node Connection,NODO_DEMAND_INLET_SOUTH,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONASOUTH,Inlet,1
+ Non-Parent Node Connection,NODO_DEMAND_OUTLET_SOUTH,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONASOUTH,Outlet,1
+ Non-Parent Node Connection,NODO_DEMAND_INLET_WEST,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONAWEST,Inlet,1
+ Non-Parent Node Connection,NODO_DEMAND_OUTLET_WEST,ZONEHVAC:LOWTEMPERATURERADIANT:VARIABLEFLOW,LOZARADIANTE_ZONAWEST,Outlet,1
+ Non-Parent Node Connection,NODO_SUPPLY_INLET,PUMP:CONSTANTSPEED,BOMBACIRCULACION,Inlet,1
+ Non-Parent Node Connection,NODO_SALIDA_BOMBA,PUMP:CONSTANTSPEED,BOMBACIRCULACION,Outlet,1

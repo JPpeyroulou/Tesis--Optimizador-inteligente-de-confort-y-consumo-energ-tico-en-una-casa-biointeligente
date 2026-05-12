@@ -1,0 +1,72 @@
+Program Version,EnergyPlus, Version 25.1.0-68a4a7c774, YMD=2026.03.11 04:07,
+   ** Warning ** Timestep: Requested number (1) is less than the suggested minimum of 4.
+   **   ~~~   ** Please see entry for Timestep in Input/Output Reference for discussion of considerations.
+   ************* Beginning Zone Sizing Calculations
+   ** Warning ** SetUpZoneSizingArrays: Requested Sizing for Zone="EAST PERIMETER", Zone has no thermostat (ref: ZoneControl:Thermostat, et al)
+   ** Warning ** SetUpZoneSizingArrays: Requested Sizing for Zone="WEST PERIMETER", Zone has no thermostat (ref: ZoneControl:Thermostat, et al)
+   ** Warning ** SetUpZoneSizingArrays: Requested Sizing for Zone="SOUTH PERIMETER", Zone has no thermostat (ref: ZoneControl:Thermostat, et al)
+   ** Warning ** SetUpZoneSizingArrays: Requested Sizing for Zone="NORTH PERIMETER", Zone has no thermostat (ref: ZoneControl:Thermostat, et al)
+   ** Warning ** Calculated design cooling load for zone=EAST PERIMETER is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=EAST PERIMETER is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design cooling load for zone=NORTH PERIMETER is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=NORTH PERIMETER is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design cooling load for zone=SOUTH PERIMETER is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=SOUTH PERIMETER is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design cooling load for zone=WEST PERIMETER is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ** Warning ** Calculated design heating load for zone=WEST PERIMETER is zero.
+   **   ~~~   ** Check Sizing:Zone and ZoneControl:Thermostat inputs.
+   ************* Beginning Plant Sizing Calculations
+   ************* Testing Individual Branch Integrity
+   ************* All Branches passed integrity testing
+   ************* Testing Individual Supply Air Path Integrity
+   ************* All Supply Air Paths passed integrity testing
+   ************* Testing Individual Return Air Path Integrity
+   ************* All Return Air Paths passed integrity testing
+   ************* No node connection errors were found.
+   ** Severe  ** CheckWarmupConvergence: Loads Initialization, Zone="EAST PERIMETER" did not converge after 25 warmup days.
+   **   ~~~   ** See Warmup Convergence Information in .eio file for details.
+   **   ~~~   ** ...Environment(SizingPeriod)="MONTEVIDEO ANN HTG 99.6% CONDNS DB HVAC Sizing Pass 1"
+   **   ~~~   ** ..Max Temp Comparison = 3.84E-002 vs Temperature Convergence Tolerance=0.40 - Pass Convergence
+   **   ~~~   ** ..Min Temp Comparison = 0.79 vs Temperature Convergence Tolerance=0.40 - Fail Convergence
+   **   ~~~   ** ..Max Heat Load Comparison = 0.0000 vs Loads Convergence Tolerance=4.00E-002 - Pass Convergence
+   **   ~~~   ** ..Max Cool Load Comparison = 0.0000 vs Loads Convergence Tolerance=4.00E-002 - Pass Convergence
+   ** Severe  ** CheckWarmupConvergence: Loads Initialization, Zone="NORTH PERIMETER" did not converge after 25 warmup days.
+   **   ~~~   ** ...Environment(SizingPeriod)="MONTEVIDEO ANN HTG 99.6% CONDNS DB HVAC Sizing Pass 1"
+   **   ~~~   ** ..Max Temp Comparison = 0.65 vs Temperature Convergence Tolerance=0.40 - Fail Convergence
+   **   ~~~   ** ..Min Temp Comparison = 2.15E-002 vs Temperature Convergence Tolerance=0.40 - Pass Convergence
+   **   ~~~   ** ..Max Heat Load Comparison = 0.0000 vs Loads Convergence Tolerance=4.00E-002 - Pass Convergence
+   **   ~~~   ** ..Max Cool Load Comparison = 0.0000 vs Loads Convergence Tolerance=4.00E-002 - Pass Convergence
+   ** Severe  ** CheckWarmupConvergence: Loads Initialization, Zone="WEST PERIMETER" did not converge after 25 warmup days.
+   **   ~~~   ** ...Environment(SizingPeriod)="MONTEVIDEO ANN HTG 99.6% CONDNS DB HVAC Sizing Pass 1"
+   **   ~~~   ** ..Max Temp Comparison = 3.84E-002 vs Temperature Convergence Tolerance=0.40 - Pass Convergence
+   **   ~~~   ** ..Min Temp Comparison = 0.79 vs Temperature Convergence Tolerance=0.40 - Fail Convergence
+   **   ~~~   ** ..Max Heat Load Comparison = 0.0000 vs Loads Convergence Tolerance=4.00E-002 - Pass Convergence
+   **   ~~~   ** ..Max Cool Load Comparison = 0.0000 vs Loads Convergence Tolerance=4.00E-002 - Pass Convergence
+   ************* Beginning Simulation
+   ************* Simulation Error Summary *************
+   ************* There are 2 unused schedules in input.
+   ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.
+   *************
+   ************* ===== Final Error Summary =====
+   ************* The following error categories occurred.  Consider correcting or noting.
+   ************* Loads Initialization did not Converge
+   ************* ..1) very high thermal mass such as very thick concrete (solution: increase max number of warmup
+   ************* ..   days in the BUILDING object);
+   ************* ..2) moderate mass and inadequate space conditioning such that the building keeps getting warmer
+   ************* ..   and warmer on successive days (solution: add HVAC, check building thermal properties,
+   ************* ..   check if infiltration is included, make sure HVAC properly controlled);
+   ************* ..3) a soil layer modeled below the concrete slab - (solution remove this layer and read about
+   ************* ..   ground temperatures in the Auxiliary Programs document).
+   ************* ..4) unreasonable (too small) limits in the BUILDING object for temperature (.4 default) or
+   ************* ..   loads tolerances (.04 default)
+   *************
+   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 3 Severe Errors.
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 12 Warning; 0 Severe Errors.
+   ************* EnergyPlus Completed Successfully-- 13 Warning; 3 Severe Errors; Elapsed Time=00hr 00min  0.00sec
