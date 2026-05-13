@@ -1,0 +1,82 @@
+# TEMPLATES CORREGIDOS - Leer de input_number (donde escribe el simulador)
+# El simulador escribe en input_number.*. Los templates deben leer de ahí.
+# Reemplaza tus templates actuales con estos para evitar "Template loop detected".
+
+template:
+  - sensor:
+      - name: "North Heating Rate Sensor"
+        unique_id: "north_heating_rate_sensor"
+        state: "{{ states('input_number.north_heating_rate_sensor') | float(0) }}"
+        unit_of_measurement: "W"
+      - name: "South Heating Rate Sensor"
+        unique_id: "south_heating_rate_sensor"
+        state: "{{ states('input_number.south_heating_rate_sensor') | float(0) }}"
+        unit_of_measurement: "W"
+      - name: "East Heating Rate Sensor"
+        unique_id: "east_heating_rate_sensor"
+        state: "{{ states('input_number.east_heating_rate_sensor') | float(0) }}"
+        unit_of_measurement: "W"
+      - name: "West Heating Rate Sensor"
+        unique_id: "west_heating_rate_sensor"
+        state: "{{ states('input_number.west_heating_rate_sensor') | float(0) }}"
+        unit_of_measurement: "W"
+      - name: "Outdoor Temperature Sensor"
+        unique_id: "outdoor_temperature_sensor"
+        state: "{{ states('input_number.outdoor_temperature_sensor') | float(0) }}"
+        unit_of_measurement: "°C"
+        device_class: temperature
+      - name: "Outdoor Humidity Sensor"
+        unique_id: "outdoor_humidity_sensor"
+        state: "{{ states('input_number.outdoor_humidity_sensor') | float(0) }}"
+        unit_of_measurement: "%"
+        device_class: humidity
+      - name: "North Air Temperature Sensor"
+        unique_id: "north_air_temperature_sensor"
+        state: "{{ states('input_number.north_air_temperature_sensor') | float(0) }}"
+        unit_of_measurement: "°C"
+        device_class: temperature
+      - name: "South Air Temperature Sensor"
+        unique_id: "south_air_temperature_sensor"
+        state: "{{ states('input_number.south_air_temperature_sensor') | float(0) }}"
+        unit_of_measurement: "°C"
+        device_class: temperature
+      - name: "East Air Temperature Sensor"
+        unique_id: "east_air_temperature_sensor"
+        state: "{{ states('input_number.east_air_temperature_sensor') | float(0) }}"
+        unit_of_measurement: "°C"
+        device_class: temperature
+      - name: "West Air Temperature Sensor"
+        unique_id: "west_air_temperature_sensor"
+        state: "{{ states('input_number.west_air_temperature_sensor') | float(0) }}"
+        unit_of_measurement: "°C"
+        device_class: temperature
+      - name: "North Air Humidity Sensor"
+        unique_id: "north_air_humidity_sensor"
+        state: "{{ states('input_number.north_air_humidity_sensor') | float(0) }}"
+        unit_of_measurement: "%"
+        device_class: humidity
+      - name: "South Air Humidity Sensor"
+        unique_id: "south_air_humidity_sensor"
+        state: "{{ states('input_number.south_air_humidity_sensor') | float(0) }}"
+        unit_of_measurement: "%"
+        device_class: humidity
+      - name: "East Air Humidity Sensor"
+        unique_id: "east_air_humidity_sensor"
+        state: "{{ states('input_number.east_air_humidity_sensor') | float(0) }}"
+        unit_of_measurement: "%"
+        device_class: humidity
+      - name: "West Air Humidity Sensor"
+        unique_id: "west_air_humidity_sensor"
+        state: "{{ states('input_number.west_air_humidity_sensor') | float(0) }}"
+        unit_of_measurement: "%"
+        device_class: humidity
+      - name: "Heat Pump Power Sensor"
+        unique_id: "heat_pump_power_sensor"
+        state: "{{ states('input_number.heat_pump_power_sensor') | float(0) }}"
+        unit_of_measurement: "W"
+        device_class: power
+      - name: "Total Electricity HVAC Sensor"
+        unique_id: "total_electricity_hvac_sensor"
+        state: "{{ states('input_number.total_electricity_hvac_sensor') | float(0) }}"
+        unit_of_measurement: "W"
+        device_class: power

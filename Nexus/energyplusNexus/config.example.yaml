@@ -1,0 +1,20 @@
+# Copiar a config.yaml y ajustar valores.
+
+home_assistant:
+  # Si HA corre en Docker: usar 127.0.0.1 si el puerto está mapeado al host (-p 8123:8123)
+  # Si HA está en otra máquina: usar la IP de esa máquina, ej. "http://192.168.1.100:8123"
+  url: "http://127.0.0.1:8123"
+  token: "YOUR_LONG_LIVED_ACCESS_TOKEN"
+  # Bandera de sincronizacion Simulador <-> Modelo AI (espera indefinida hasta OFF)
+  sync_flag_entity: "input_boolean.sinergym_simulator_ready"
+  use_input_number_for_sensors: false  # false=sensor.* (sinergym). true=input_number.*
+  use_websocket: true  # WebSocket=1 conexion (evita 10048). Si falla, usa REST
+
+energyplus:
+  executable: "C:\\EnergyPlusV25-1-0\\EnergyPlus.exe"  # o ruta a EnergyPlus
+  idf_path: "idf_multiplesZonas.epJSON"
+  weather_path: "URY_Montevideo.epw"
+  run_directory: "eplus_run"  # directorio de ejecución (se crea si no existe)
+  simulation_year: 2021  # año usado para input_datetime.simulation_datetime (el CSV no tiene año)
+  start_month: 1  # mes de inicio (1=enero)
+  start_day: 1  # dia de inicio dentro del mes
